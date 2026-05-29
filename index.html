@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Portofolio — Ni Luh Widhia Hasrini</title>
+  <link
+    href="https:/fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --glass-bg: rgba(255, 255, 255, 0.08);
+      --glass-border: rgba(255, 255, 255, 0.18);
+      --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+      --blur: blur(18px);
+      --accent: #a8d8ea;
+      --accent2: #e8c1d8;
+      --accent3: #c3e6cb;
+      --gold: #f0d9b5;
+      --text: rgba(255, 255, 255, 0.92);
+      --text-muted: rgba(255, 255, 255, 0.55);
+      --radius: 20px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+      background: #0a0e1a;
+    }
+
+    /* ── BACKGROUND ── */
+    .bg-scene {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      background: linear-gradient(135deg, #0d1b3e 0%, #1a0a2e 40%, #0d2b1e 80%, #0a0e1a 100%);
+      overflow: hidden;
+    }
+
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.35;
+      animation: drift 12s ease-in-out infinite alternate;
+    }
+
+    .orb1 {
+      width: 500px;
+      height: 500px;
+      top: -100px;
+      left: -100px;
+      background: radial-gradient(circle, #3b6fd4, #1a2a6c);
+      animation-delay: 0s;
+    }
+
+    .orb2 {
+      width: 400px;
+      height: 400px;
+      top: 30%;
+      right: -80px;
+      background: radial-gradient(circle, #8e44ad, #3b1f5c);
+      animation-delay: -4s;
+    }
+
+    .orb3 {
+      width: 350px;
+      height: 350px;
+      bottom: 0;
+      left: 20%;
+      background: radial-gradient(circle, #1a8a5a, #0d3a25);
+      animation-delay: -8s;
+    }
+
+    .orb4 {
+      width: 250px;
+      height: 250px;
+      top: 60%;
+      left: 60%;
+      background: radial-gradient(circle, #c06070, #6b1a2e);
+      animation-delay: -2s;
+    }
+
+    @keyframes drift {
+      0% {
+        transform: translate(0, 0) scale(1);
+      }
+
+      100% {
+        transform: translate(30px, 40px) scale(1.08);
+      }
+    }
+
+    /* star particles */
+    .stars {
+      position: absolute;
+      inset: 0;
+    }
+
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      border-radius: 50%;
+      animation: twinkle 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes twinkle {
+      0% {
+        opacity: .1
+      }
+
+      100% {
+        opacity: .8
+      }
+    }
+
+    /* ── LAYOUT ── */
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(10, 14, 26, 0.6);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      letter-spacing: 2px;
+      color: var(--gold);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.8rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      transition: color .3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    /* ── GLASS CARD ── */
+    .glass {
+      background: var(--glass-bg);
+      backdrop-filter: var(--blur);
+      -webkit-backdrop-filter: var(--blur);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius);
+      box-shadow: var(--glass-shadow);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 80px 0 60px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 40px;
+      align-items: center;
+      animation: fadeUp .9s ease both;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid rgba(168, 216, 234, 0.35);
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.6rem, 6vw, 4.5rem);
+      font-weight: 300;
+      line-height: 1.1;
+      color: #fff;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero-sub {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-top: 14px;
+      line-height: 1.7;
+      max-width: 500px;
+    }
+
+    .hero-meta {
+      margin-top: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .meta-pill {
+      padding: 8px 18px;
+      border-radius: 100px;
+      font-size: 0.78rem;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: var(--blur);
+    }
+
+    .hero-avatar {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(168, 216, 234, 0.2), rgba(240, 217, 181, 0.2));
+      border: 2px solid var(--glass-border);
+      backdrop-filter: var(--blur);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.5rem;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+
+    /* ── SECTION LAYOUT ── */
+    section {
+      margin-bottom: 56px;
+      animation: fadeUp .8s ease both;
+    }
+
+    section:nth-child(2) {
+      animation-delay: .1s;
+    }
+
+    section:nth-child(3) {
+      animation-delay: .2s;
+    }
+
+    section:nth-child(4) {
+      animation-delay: .3s;
+    }
+
+    section:nth-child(5) {
+      animation-delay: .4s;
+    }
+
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .section-num {
+      font-size: 0.65rem;
+      letter-spacing: 3px;
+      color: var(--accent);
+      text-transform: uppercase;
+      opacity: .7;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: #fff;
+    }
+
+    .section-line {
+      flex: 1;
+      height: 1px;
+      background: var(--glass-border);
+    }
+
+    /* ── CARDS ── */
+    .card {
+      padding: 32px;
+      transition: transform .3s, box-shadow .3s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.35);
+    }
+
+    .card p {
+      font-size: 0.88rem;
+      line-height: 1.85;
+      color: var(--text-muted);
+    }
+
+    .card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+
+    .card h4 {
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    /* ── GRID LAYOUTS ── */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    /* ── QUOTE BLOCK ── */
+    .quote-block {
+      padding: 40px 44px;
+      text-align: center;
+      position: relative;
+    }
+
+    .quote-block::before {
+      content: '"';
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 7rem;
+      line-height: 0;
+      position: absolute;
+      top: 50px;
+      left: 30px;
+      color: var(--gold);
+      opacity: .2;
+    }
+
+    .quote-block blockquote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 300;
+      font-style: italic;
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    .quote-attr {
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: 16px;
+    }
+
+    /* ── COMPETENCY CARDS ── */
+    .comp-card {
+      padding: 28px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .comp-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, var(--c1), var(--c2));
+      opacity: 0.06;
+      border-radius: inherit;
+    }
+
+    .comp-icon {
+      font-size: 1.8rem;
+      margin-bottom: 14px;
+    }
+
+    .comp-card h3 {
+      font-size: 1.05rem;
+    }
+
+    .comp-card p {
+      font-size: 0.82rem;
+    }
+
+    /* ── TAG LIST ── */
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .tag {
+      font-size: 0.75rem;
+      padding: 6px 14px;
+      border-radius: 100px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--glass-border);
+      color: var(--text-muted);
+      transition: background .3s, color .3s;
+    }
+
+    .tag:hover {
+      background: rgba(168, 216, 234, 0.15);
+      color: var(--accent);
+    }
+
+    /* ── TABLE ── */
+    .glass-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .glass-table th {
+      font-size: 0.7rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      padding: 14px 20px;
+      text-align: left;
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .glass-table td {
+      font-size: 0.84rem;
+      padding: 14px 20px;
+      color: var(--text-muted);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .glass-table tr:hover td {
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+    }
+
+    /* ── PROGRESS BAR ── */
+    .pedagogy-item {
+      margin-bottom: 22px;
+    }
+
+    .pedagogy-label {
+      font-size: 0.82rem;
+      color: var(--text);
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .prog-bar {
+      height: 5px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .prog-fill {
+      height: 100%;
+      border-radius: 10px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      transform-origin: left;
+      animation: growBar 1.5s ease forwards;
+      transform: scaleX(0);
+    }
+
+    @keyframes growBar {
+      to {
+        transform: scaleX(1);
+      }
+    }
+
+    /* ── MISSION HIGHLIGHTS ── */
+    .mission-list {
+      list-style: none;
+    }
+
+    .mission-list li {
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      padding-left: 20px;
+      position: relative;
+      line-height: 1.7;
+    }
+
+    .mission-list li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 0.75rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 32px;
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--glass-border);
+      margin-top: 40px;
+    }
+
+    footer span {
+      color: var(--gold);
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-avatar {
+        width: 100px;
+        height: 100px;
+        font-size: 2.5rem;
+        order: -1;
+      }
+
+      .grid-2,
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .quote-block {
+        padding: 28px;
+      }
+    }
+
+    /* ── GLOW ACCENT ── */
+    .glow-accent {
+      display: inline-block;
+      padding: 2px 0;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-avatar {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 5px solid white;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .hero-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* colored comp cards */
+    .c-blue {
+      --c1: #3b6fd4;
+      --c2: #a8d8ea;
+    }
+
+    .c-pink {
+      --c1: #c06070;
+      --c2: #e8c1d8;
+    }
+
+    .c-green {
+      --c1: #1a8a5a;
+      --c2: #c3e6cb;
+    }
+
+    .c-gold {
+      --c1: #c08040;
+      --c2: #f0d9b5;
+    }
+
+    /* ── BENTO GRID ── */
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      padding: 20px;
+    }
+
+    .bento-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 20px;
+      min-height: 220px;
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .bento-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .5s ease;
+    }
+
+    .bento-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .bento-caption {
+      position: absolute;
+      inset: auto 0 0 0;
+      padding: 18px;
+      background: linear-gradient(to top,
+          rgba(0, 0, 0, 0.7),
+          rgba(0, 0, 0, 0));
+    }
+
+    .bento-caption h3 {
+      font-size: 1rem;
+      margin-bottom: 6px;
+      color: white;
+    }
+
+    .bento-caption p {
+      font-size: .78rem;
+      color: rgba(255, 255, 255, 0.75);
+      line-height: 1.5;
+    }
+
+    .large {
+      grid-column: span 2;
+      grid-row: span 2;
+      min-height: 460px;
+    }
+
+    .wide {
+      grid-column: span 2;
+    }
+
+    @media(max-width:768px) {
+
+      .bento-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .large,
+      .wide {
+        grid-column: span 1;
+        grid-row: span 1;
+        min-height: 260px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Background -->
+  <div class="bg-scene">
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+    <div class="orb orb4"></div>
+    <div class="stars" id="stars"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-logo">WIDHIA · PPG</div>
+    <ul class="nav-links">
+      <li><a href="#profil">Profil</a></li>
+      <li><a href="#produk">Produk</a></li>
+      <li><a href="#pedagogi">Pedagogi</a></li>
+      <li><a href="#visi">Visi</a></li>
+      <li><a href="#kompetensi">Kompetensi</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container">
+
+    <!-- HERO -->
+    <div class="hero">
+      <div>
+        <div class="hero-badge">✦ E-Portofolio Mahasiswa PPG</div>
+        <h1>Ni Luh <em>Widhia</em><br>Hasrini</h1>
+        <p class="hero-sub">Calon pendidik Informatika yang berkomitmen menciptakan pembelajaran aktif, kreatif, dan
+          bermakna bagi generasi masa depan.</p>
+        <div class="hero-meta">
+          <span class="meta-pill">📚 Informatika</span>
+          <span class="meta-pill">🎓 Undiksha</span>
+          <span class="meta-pill">🏫 SMP Negeri 6 Singaraja</span>
+          <span class="meta-pill">📍 Singaraja, Bali</span>
+        </div>
+      </div>
+      <div class="hero-avatar">
+        <img src="/public/foto widhia.png" alt="Foto Profil">
+      </div>
+    </div>
+
+    <!-- 01 · PROFIL MAHASISWA -->
+    <section id="profil">
+      <div class="section-label">
+        <span class="section-num">01</span>
+        <h2 class="section-title">Profil Mahasiswa</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <!-- Quote -->
+      <div class="quote-block glass" style="margin-bottom:24px;">
+        <blockquote>"Guru yang baik bukan hanya mengajarkan ilmu, tetapi juga menginspirasi peserta didik untuk terus
+          belajar dan berkembang."</blockquote>
+        <p class="quote-attr">— Motto Ni Luh Widhia Hasrini</p>
+      </div>
+
+      <div class="grid-2">
+        <!-- Tentang Diri -->
+        <div class="card glass">
+          <h4>Tentang Diri</h4>
+          <h3>Latar Belakang</h3>
+          <p>Berasal dari Singaraja — <em>Kota Pendidikan</em> di Bali. Lingkungan yang menjunjung tinggi gotong royong
+            dan kebersamaan membentuk karakter yang disiplin, peduli sesama, dan menghargai keberagaman.</p>
+          <div class="tag-list">
+            <span class="tag">Disiplin</span>
+            <span class="tag">Gotong Royong</span>
+            <span class="tag">Peduli Sesama</span>
+            <span class="tag">Bertanggung Jawab</span>
+          </div>
+        </div>
+
+        <!-- Identitas -->
+        <div class="card glass">
+          <h4>Identitas Mahasiswa</h4>
+          <h3>Data Diri</h3>
+          <p style="margin-bottom:6px;"><strong style="color:var(--text);">NIM</strong> — 2664826007</p>
+          <p style="margin-bottom:6px;"><strong style="color:var(--text);">Program Studi</strong> — Informatika</p>
+          <p style="margin-bottom:6px;"><strong style="color:var(--text);">Kampus</strong> — Universitas Pendidikan
+            Ganesha</p>
+          <p style="margin-bottom:6px;"><strong style="color:var(--text);">Sekolah PPL</strong> — SMP Negeri 6 Singaraja
+          </p>
+          <p style="margin-bottom:6px;"><strong style="color:var(--text);">Dosen Pembimbing</strong> — I Nengah Eka
+            Mertayasa</p>
+          <p><strong style="color:var(--text);">Guru Pamong</strong> — Ketut Budi Ardika</p>
+        </div>
+      </div>
+
+      <!-- Motivasi menjadi guru -->
+      <div style="margin-top:20px;" class="grid-2">
+        <div class="card glass">
+          <h4>Motivasi</h4>
+          <h3>Mengapa Menjadi Guru?</h3>
+          <p>Ingin berbagi ilmu dan membantu peserta didik meraih cita-cita. Melihat peserta didik berkembang, memahami
+            materi, dan menjadi lebih percaya diri adalah kepuasan terbesar. Orang tua dan keluarga menjadi inspirasi
+            utama dalam memilih jalur pendidik.</p>
+        </div>
+        <div class="card glass">
+          <h4>Visi Pendidik</h4>
+          <h3>Guru Profesional Impian</h3>
+          <p>Guru yang tidak hanya menguasai materi, tetapi juga mendidik, membimbing, dan menjadi teladan. Mampu
+            menciptakan suasana belajar yang nyaman, aktif, dan menyenangkan — sekaligus terus mengembangkan diri secara
+            berkelanjutan.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 · PRODUK PEMBELAJARAN -->
+    <section id="produk">
+      <div class="section-label">
+        <span class="section-num">02</span>
+        <h2 class="section-title">Deskripsi Produk Pembelajaran</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="card glass" style="margin-bottom:20px;">
+        <div class="grid-2">
+          <div>
+            <h4>Mata Pelajaran & Kelas</h4>
+            <h3>Informatika — Kelas VII</h3>
+            <p>Mengajarkan tiga materi utama secara terintegrasi agar peserta didik mampu berpikir sistematis dan
+              menerapkan teknologi dalam kehidupan nyata.</p>
+          </div>
+          <div>
+            <h4>Materi yang Diajarkan</h4>
+            <div class="tag-list">
+              <a href="https://drive.google.com/drive/folders/1wpfSRuxIeVVHPr0YC6hKnFFlc0ld9G9Z?usp=sharing"
+                target="_blank" class="tag">
+                📊 Analisis Data
+              </a>
+
+              <a href="https://drive.google.com/drive/folders/1wpfSRuxIeVVHPr0YC6hKnFFlc0ld9G9Z?usp=sharing"
+                target="_blank" class="tag">
+                🧠 Berpikir Komputasional
+              </a>
+
+              <a href="https://drive.google.com/drive/folders/1wpfSRuxIeVVHPr0YC6hKnFFlc0ld9G9Z?usp=sharing"
+                target="_blank" class="tag">
+                🐱 Algoritma Pemrograman (Scratch)
+              </a>
+            </div>
+            <p style="margin-top:14px;">Tujuan: peserta didik mampu memahami, aktif belajar, dan menerapkan pengetahuan
+              dalam kehidupan sehari-hari.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Kendala & Faktor Keberhasilan -->
+      <div class="grid-2">
+        <div class="card glass">
+          <h4>Kendala</h4>
+          <h3>Tantangan Penyusunan</h3>
+          <ul class="mission-list">
+            <li>Menyesuaikan materi dengan karakteristik peserta didik yang beragam</li>
+            <li>Menentukan model dan metode pembelajaran yang tepat</li>
+            <li>Menyusun asesmen yang sesuai dengan tujuan pembelajaran</li>
+            <li>Mengelola waktu penyusunan perangkat secara sistematis</li>
+            <li>Memilih media pembelajaran yang menarik dan mudah dipahami</li>
+          </ul>
+        </div>
+        <div class="card glass">
+          <h4>Keberhasilan</h4>
+          <h3>Faktor Pendukung</h3>
+          <ul class="mission-list">
+            <li>Kesiapan guru dalam merancang dan melaksanakan pembelajaran</li>
+            <li>Penggunaan metode dan media yang sesuai</li>
+            <li>Partisipasi aktif peserta didik</li>
+            <li>Lingkungan kelas yang kondusif</li>
+            <li>Komunikasi dan interaksi yang baik antara guru dan peserta didik</li>
+            <li>Dukungan sarana dan prasarana yang memadai</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Tabel Penyesuaian -->
+      <div class="card glass" style="margin-top:20px; padding:0; overflow:hidden;">
+        <div style="padding:28px 32px 16px;">
+          <h4>Fleksibilitas</h4>
+          <h3>Penyesuaian Komponen Pembelajaran</h3>
+        </div>
+        <table class="glass-table">
+          <thead>
+            <tr>
+              <th>Komponen</th>
+              <th>Bentuk Penyesuaian</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Metode Pembelajaran</td>
+              <td>Disesuaikan dengan kondisi dan karakteristik peserta didik</td>
+            </tr>
+            <tr>
+              <td>Media Pembelajaran</td>
+              <td>Menggunakan media digital atau sederhana sesuai fasilitas sekolah</td>
+            </tr>
+            <tr>
+              <td>Pengelolaan Waktu</td>
+              <td>Menyesuaikan durasi dengan tingkat pemahaman peserta didik</td>
+            </tr>
+            <tr>
+              <td>Strategi Pembelajaran</td>
+              <td>Diskusi, presentasi, atau praktik sesuai kebutuhan</td>
+            </tr>
+            <tr>
+              <td>Asesmen</td>
+              <td>Menyesuaikan bentuk penilaian dengan kemampuan peserta didik</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Dokumen Siklus Pembelajaran -->
+      <div class="card glass" style="margin-top:20px;">
+        <h4>Dokumentasi</h4>
+        <h3>Dokumen Siklus Pembelajaran</h3>
+
+        <p style="margin-bottom:22px;">
+          Kumpulan perangkat dan laporan pembelajaran pada setiap siklus pelaksanaan praktik mengajar.
+        </p>
+
+        <div class="grid-3">
+
+          <!-- Siklus 1 -->
+          <a href="https://drive.google.com/drive/folders/1iWL9PdVnfk_0OgmsQC9T7qROKEMKOONB?usp=sharing" target="_blank"
+            style="text-decoration:none; color:inherit;">
+            <div class="comp-card glass c-blue">
+              <div class="comp-icon">📘</div>
+              <h3>Siklus 1</h3>
+              <p>
+                Perangkat pembelajaran, modul ajar, asesmen, dan dokumentasi kegiatan pada siklus pertama.
+              </p>
+
+              <div class="tag-list">
+                <span class="tag">Google Drive</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Siklus 2 -->
+          <a href="https://drive.google.com/drive/folders/1iWL9PdVnfk_0OgmsQC9T7qROKEMKOONB?usp=sharing" target="_blank"
+            style="text-decoration:none; color:inherit;">
+            <div class="comp-card glass c-pink">
+              <div class="comp-icon">📙</div>
+              <h3>Siklus 2</h3>
+              <p>
+                Hasil pengembangan pembelajaran dan refleksi berdasarkan evaluasi pada siklus sebelumnya.
+              </p>
+
+              <div class="tag-list">
+                <span class="tag">Google Drive</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Siklus 3 -->
+          <a href="https://drive.google.com/drive/folders/1iWL9PdVnfk_0OgmsQC9T7qROKEMKOONB?usp=sharing" target="_blank"
+            style="text-decoration:none; color:inherit;">
+            <div class="comp-card glass c-green">
+              <div class="comp-icon">📗</div>
+              <h3>Siklus 3</h3>
+              <p>
+                Implementasi akhir pembelajaran beserta hasil refleksi dan peningkatan proses mengajar.
+              </p>
+
+              <div class="tag-list">
+                <span class="tag">Google Drive</span>
+              </div>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- PEDAGOGI -->
+    <section id="pedagogi">
+      <div class="section-label">
+        <span class="section-num">03</span>
+        <h2 class="section-title">Teori Pedagogi yang Digunakan</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card glass">
+          <h4>Landasan Teori</h4>
+          <h3>Pendekatan Pembelajaran</h3>
+
+          <div class="pedagogy-item">
+            <div class="pedagogy-label"><span>Student Centered Learning</span><span style="color:var(--accent)">●</span>
+            </div>
+            <div class="prog-bar">
+              <div class="prog-fill" style="animation-delay:.1s"></div>
+            </div>
+          </div>
+          <div class="pedagogy-item">
+            <div class="pedagogy-label"><span>Pembelajaran Berdiferensiasi</span><span
+                style="color:var(--accent2)">●</span></div>
+            <div class="prog-bar">
+              <div class="prog-fill"
+                style="animation-delay:.3s; background:linear-gradient(90deg, var(--accent2), var(--gold))"></div>
+            </div>
+          </div>
+          <div class="pedagogy-item">
+            <div class="pedagogy-label"><span>Pembelajaran Kolaboratif</span><span style="color:var(--accent3)">●</span>
+            </div>
+            <div class="prog-bar">
+              <div class="prog-fill"
+                style="animation-delay:.5s; background:linear-gradient(90deg, var(--accent3), var(--accent))"></div>
+            </div>
+          </div>
+          <div class="pedagogy-item">
+            <div class="pedagogy-label"><span>Pendekatan Inkuiri</span><span style="color:var(--gold)">●</span></div>
+            <div class="prog-bar">
+              <div class="prog-fill"
+                style="animation-delay:.7s; background:linear-gradient(90deg, var(--gold), var(--accent2))"></div>
+            </div>
+          </div>
+          <div class="pedagogy-item">
+            <div class="pedagogy-label"><span>Asesmen Diagnostik</span><span style="color:var(--accent)">●</span></div>
+            <div class="prog-bar">
+              <div class="prog-fill" style="animation-delay:.9s"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Refleksi Diri -->
+        <div class="card glass">
+          <h4>Refleksi Diri</h4>
+          <h3>Pengalaman & Rencana</h3>
+          <p style="margin-bottom:16px;">Melalui PPL, saya memperoleh pengalaman berharga dalam merancang pembelajaran
+            yang lebih terstruktur, kreatif, dan berpusat pada peserta didik. Saya belajar untuk lebih fleksibel dalam
+            menghadapi berbagai kondisi kelas.</p>
+          <h4 style="margin-top:4px;">Yang Akan Ditingkatkan</h4>
+          <div class="tag-list">
+            <span class="tag">Manajemen Kelas</span>
+            <span class="tag">Media Inovatif</span>
+            <span class="tag">Teknologi Pembelajaran</span>
+            <span class="tag">Asesmen Efektif</span>
+            <span class="tag">Komunikasi</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VISI & MISI -->
+    <section id="visi">
+      <div class="section-label">
+        <span class="section-num">04</span>
+        <h2 class="section-title">Visi, Misi & Harapan</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="card glass" style="margin-bottom:20px; padding:40px;">
+        <h4>Misi Utama</h4>
+        <h3 style="font-size:1.5rem; margin-bottom:16px;">Menjadi Pendidik Profesional yang Berdampak</h3>
+        <p>Menjadi guru yang tidak hanya fokus pada pencapaian akademik, tetapi juga membimbing peserta didik dalam
+          membentuk karakter, sikap, dan keterampilan yang berguna dalam kehidupan sehari-hari. Menciptakan lingkungan
+          belajar yang nyaman, aman, dan mendukung — sekaligus berkomitmen mengikuti perkembangan teknologi dan
+          kebutuhan pendidikan era modern.</p>
+      </div>
+
+      <div class="card glass" style="padding:0; overflow:hidden;">
+        <div style="padding:28px 32px 16px;">
+          <h4>Karakter yang Ingin Dibangun</h4>
+          <h3>Profil Guru Idaman</h3>
+        </div>
+        <div style="padding:0 32px 32px;">
+          <ul class="mission-list">
+            <li>Disiplin dan bertanggung jawab dalam menjalankan tugas</li>
+            <li>Sabar dan peduli terhadap kebutuhan peserta didik</li>
+            <li>Kreatif dan inovatif dalam merancang pembelajaran</li>
+            <li>Mampu menjadi motivator bagi peserta didik</li>
+            <li>Terbuka terhadap kritik dan terus belajar untuk memperbaiki diri</li>
+            <li>Memiliki sikap ramah, adil, dan menghargai perbedaan</li>
+            <li>Mampu menciptakan suasana kelas yang positif dan menyenangkan</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- KOMPETENSI -->
+    <section id="kompetensi">
+      <div class="section-label">
+        <span class="section-num">05</span>
+        <h2 class="section-title">Kompetensi Guru yang Dibangun</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="grid-2">
+        <div class="comp-card glass c-blue">
+          <div class="comp-icon">🎓</div>
+          <h4>Kompetensi 01</h4>
+          <h3>Pedagogik</h3>
+          <p>Memahami karakteristik peserta didik, merancang pembelajaran yang sesuai kebutuhan, serta menggunakan
+            metode dan media yang menarik agar proses belajar lebih efektif dan bermakna.</p>
+        </div>
+        <div class="comp-card glass c-pink">
+          <div class="comp-icon">💡</div>
+          <h4>Kompetensi 02</h4>
+          <h3>Profesional</h3>
+          <p>Terus meningkatkan penguasaan materi dan kemampuan menggunakan teknologi serta inovasi pembelajaran untuk
+            memberikan pengalaman belajar terbaik kepada peserta didik.</p>
+        </div>
+        <div class="comp-card glass c-green">
+          <div class="comp-icon">🤝</div>
+          <h4>Kompetensi 03</h4>
+          <h3>Sosial</h3>
+          <p>Membangun komunikasi yang baik dengan peserta didik, guru, orang tua, dan lingkungan sekolah sehingga
+            tercipta hubungan yang harmonis dan mendukung proses pendidikan.</p>
+        </div>
+        <div class="comp-card glass c-gold">
+          <div class="comp-icon">🌟</div>
+          <h4>Kompetensi 04</h4>
+          <h3>Kepribadian</h3>
+          <p>Menjadi guru yang disiplin, sabar, bertanggung jawab, jujur, dan dapat menjadi teladan yang baik bagi
+            peserta didik dalam sikap maupun perilaku sehari-hari.</p>
+        </div>
+      </div>
+
+      <!-- Harapan -->
+      <div class="quote-block glass" style="margin-top:24px;">
+        <blockquote>Saya berharap dapat menjadi guru profesional yang mampu memberikan dampak positif bagi peserta didik
+          dan lingkungan sekolah — membantu mereka menjadi generasi yang cerdas, berkarakter, dan siap menghadapi
+          perkembangan zaman.</blockquote>
+        <p class="quote-attr">— Harapan ke Depan</p>
+      </div>
+    </section>
+
+    <!-- Dokumentasi Kegiatan -->
+    <section id="dokumentasi">
+
+      <div class="section-label">
+        <span class="section-num">06</span>
+        <h2 class="section-title">Dokumentasi Kegiatan</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="glass bento-grid">
+
+        <!-- FOTO 1 -->
+        <div class="bento-item large">
+          <img src="/public/dokumentasi 1.jpeg" alt="Dokumentasi 1">
+          <div class="bento-caption">
+            <h3>Pengenalan Sekolah</h3>
+            <p>Kegiatan pengenalan sekolah kepada peserta PPG</p>
+          </div>
+
+        </div>
+
+        <!-- FOTO 2 -->
+        <div class="bento-item">
+          <img src="/public/dokumentasi 2.jpeg" alt="Dokumentasi 2">
+          <div class="bento-caption">
+            <h3>Diskusi Kelompok</h3>
+          </div>
+        </div>
+
+        <!-- FOTO 3 -->
+        <div class="bento-item">
+          <img src="/public/dokumentasi 3.jpeg" alt="Dokumentasi 3">
+          <div class="bento-caption">
+            <h3>Presentasi Peserta Didik</h3>
+          </div>
+        </div>
+
+        <!-- FOTO 4 -->
+        <div class="bento-item wide">
+          <img src="/public/dokumentasi 4.jpeg" alt="Dokumentasi 4">
+          <div class="bento-caption">
+            <h3>Pembelajaran Scratch</h3>
+            <p>Peserta didik mempraktikkan algoritma pemrograman menggunakan Scratch.</p>
+          </div>
+        </div>
+
+        <!-- FOTO 5 -->
+        <div class="bento-item">
+          <img src="/public/dokumentasi 5.jpeg" alt="Dokumentasi 5">
+          <div class="bento-caption">
+            <h3>Refleksi Pembelajaran</h3>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="glass">
+    <p>E-Portofolio <span>Ni Luh Widhia Hasrini</span> · NIM 2664826007 · Informatika · <span>Undiksha</span> · PPG 2025
+    </p>
+  </footer>
+
+  <script>
+    // Generate stars
+    const starsContainer = document.getElementById('stars');
+    for (let i = 0; i < 120; i++) {
+      const s = document.createElement('div');
+      s.className = 'star';
+      s.style.cssText = `
+      left:${Math.random() * 100}%;
+      top:${Math.random() * 100}%;
+      width:${Math.random() * 2 + 1}px;
+      height:${Math.random() * 2 + 1}px;
+      animation-delay:${Math.random() * 4}s;
+      animation-duration:${2 + Math.random() * 3}s;
+    `;
+      starsContainer.appendChild(s);
+    }
+
+    // Intersection Observer for progress bars
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.querySelectorAll('.prog-fill').forEach(el => {
+            el.style.transform = '';
+          });
+        }
+      });
+    }, { threshold: 0.3 });
+
+    document.querySelectorAll('section').forEach(s => observer.observe(s));
+
+    // Smooth nav highlight
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 80;
+        if (pageYOffset >= sectionTop) current = section.getAttribute('id');
+      });
+      navLinks.forEach(link => {
+        link.style.color = link.getAttribute('href') === `#${current}`
+          ? 'var(--accent)' : '';
+      });
+    });
+  </script>
+</body>
+
+</html>
