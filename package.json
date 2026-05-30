@@ -1,0 +1,13 @@
+{
+    "name": "portofolio-ppg",
+    "version": "1.0.0",
+    "description": "E-Portfolio PPG Prajabatan",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js",
+        "dev": "node server.js"
+    },
+    "dependencies": {
+        "express": "^4.18.2"
+    }
+}
